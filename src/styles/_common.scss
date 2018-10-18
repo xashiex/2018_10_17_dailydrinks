@@ -1,0 +1,98 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+
+html, body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-fg;
+  background-color: $color-bg-2;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+input,
+textarea {
+  border-radius: 0;
+}
+
+a.btn {
+  $dur: 0.25s;
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+  border: 1px solid $color-fg;
+  color: $color-fg;
+  background-color: $color-bg;
+  transition: color $dur ease, background-color $dur ease, border-color $dur ease;
+  &:hover {
+    color: $color-bg;
+    border-color: $color-bg;
+    background-color: $color-fg;
+  }
+}
+
+.cc {
+  width: 100%;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding {
+  padding: 0.5rem;
+}
+
+.warning {
+  color: $color-warning;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  z-index: 10;
+  background-color: rgba($color-fg, 0.8);
+  .modal-container {
+    $m: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: $m auto;
+    width: calc(100% - 2rem);
+    max-width: 360px;
+    min-height: calc(100% - #{$m * 2});
+  }
+  .modal-content {
+    position: relative;
+    width: 100%;
+    background-color: $color-bg;
+  }
+  .modal-header, 
+  .modal-body,
+  .modal-footer {
+    padding: 1rem;
+  }
+  .modal-close-btn {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    font-size: 1rem;
+    border: 2px solid $color-fg;
+  }
+}

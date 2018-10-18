@@ -1,0 +1,20 @@
+@import './variable.scss';
+
+@mixin mq-d() {
+	@media screen and ( min-width: #{$width-m + 1px} ){
+	  @content;
+	}
+}
+@mixin mq-m() {
+	@media screen and ( max-width: #{$width-m} ){
+	  @content;
+	}
+}
+@mixin vw-param($param, $v1, $v2) {
+  @include mq-d() {
+    #{$param}: $v1;
+  }
+  @include mq-m() {
+    #{$param}: $v2 / $width-m-ps * 100vw;
+  }
+}

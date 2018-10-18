@@ -1,28 +1,34 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import { mapState } from 'vuex';
+import TheHeader from './components/TheHeader.vue';
+import TheMain from './components/TheMain.vue';
+import TheFooter from './components/TheFooter.vue';
+import OrderForm from './components/OrderForm.vue';
 
 export default {
   name: 'app',
+  computed: {
+    ...mapState([
+      'isShowForm',
+    ]),
+  },
   components: {
-    HelloWorld,
+    TheHeader,
+    TheMain,
+    TheFooter,
+    OrderForm,
   },
 };
 </script>
 
+<template lang="pug">
+  .App
+    TheHeader
+    TheMain
+    TheFooter
+    OrderForm(v-if="isShowForm")
+</template>
+
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './styles/_common.scss';
 </style>
